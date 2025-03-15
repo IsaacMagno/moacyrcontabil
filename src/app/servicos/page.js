@@ -1,6 +1,7 @@
 import BannerServicesSection from "./bannerServicesSection";
 import DreamSection from "@/components/commum-sections/dreamSection";
 import ReasonsSection from "./reasonsSection";
+import RemoteAccountingSolutionsSection from "./RemoteAccountingSolutionsSection";
 import { metadataServices } from "../../helpers/metadata";
 import InfoSection from "@/components/layout/infoSection";
 
@@ -13,6 +14,7 @@ export default function Servicos() {
       <InfoSection />
       <DreamSection />
       <ReasonsSection />
+      <RemoteAccountingSolutionsSection />
     </main>
   );
 }

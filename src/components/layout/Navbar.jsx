@@ -64,12 +64,14 @@ const Navbar = () => {
       {menuActive ? (
         <div className="min-h-screen bg-black absolute top-0 z-50"></div>
       ) : null}
-      <div className="flex justify-between items-center">
-        <Link href="/inicio" aria-label="Página inicial">
-          <LogoIcon className="w-36 lg:w-[12rem] lmd:w-[18.3rem]" />
-        </Link>
+      <div className="flex justify-between lg:items-center">
+        <div className="flex flex-col gap-4 0">
+          <Link href="/inicio" aria-label="Página inicial">
+            <LogoIcon className="w-36 lg:w-[12rem] lmd:w-[18.3rem]" />
+          </Link>
+        </div>
 
-        <div className="block lg:hidden">
+        <div className="block mt-2 lg:mt-0 lg:hidden">
           <Menu onClick={handleShowMenu} className="navbar-contact-buttons" />
         </div>
         <ul className="hidden lg:flex gap-6 xlg:gap-12">

@@ -31,6 +31,11 @@ const ControlSection = () => {
         <h1 className="lg:text-3xl lmd:text-5xl">Organização Financeira</h1>
         {/* <h2>Sem tempo para controlar suas contas?</h2>
         <h2>Vamos até sua empresa e fazemos para você!</h2> */}
+        <p>
+          Oferecemos uma planilha própria, desenvolvida para empresas com um
+          volume médio de lançamentos. Treinamos sua equipe para fazer os
+          lançamentos e analisar os resultados.
+        </p>
         <ul className="flex flex-col gap-4">
           {descText.map((desc) => (
             <li>

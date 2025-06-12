@@ -42,15 +42,12 @@ export const budgetTexts = [
 
 export const descText = [
   {
-    title: "Apuração da Lucratividade",
+    title: "Contas a pagar e a receber",
   },
   {
-    title: "Projeção do Fluxo de Caixa",
+    title: "Controle do fluxo de caixa",
   },
   {
-    title: "Analise de 06 tipos de resultados",
-  },
-  {
-    title: "Acompanhamento da Gestão",
+    title: "Análise de Resultados",
   },
 ];

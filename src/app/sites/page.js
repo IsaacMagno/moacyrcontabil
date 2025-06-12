@@ -110,7 +110,7 @@ let CND = [
   },
   {
     nome: "CND do FGTS",
-    link: "https://www.fgts.gov.br/Pages/sou-empregador/certificado-de-regularidade-do-fgts-crf.aspx",
+    link: "https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf",
   },
   {
     nome: "CND Trabalhista",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import PeopleOnCelphone from "@/../../public/services/business-people-office.jpg";
 import BusinessMan from "/public/services/business man.png";
 import { descText } from "@/helpers/budgetTexts";
+import Link from "next/link";
 
 const ControlSection = () => {
   return (
@@ -27,11 +28,9 @@ const ControlSection = () => {
         />
       </div>
       <article className="flex flex-col items-start gap-6 lg:w-[23rem] lmd:w-[38rem] xlg:w-[46rem]">
-        <h1 className="lg:text-3xl lmd:text-5xl">
-          CONTROLE FINANCEIRO E ANÁLISE DE RESULTADOS
-        </h1>
-        <h2>Sem tempo para controlar suas contas?</h2>
-        <h2>Vamos até sua empresa e fazemos para você!</h2>
+        <h1 className="lg:text-3xl lmd:text-5xl">Organização Financeira</h1>
+        {/* <h2>Sem tempo para controlar suas contas?</h2>
+        <h2>Vamos até sua empresa e fazemos para você!</h2> */}
         <ul className="flex flex-col gap-4">
           {descText.map((desc) => (
             <li>
@@ -40,11 +39,14 @@ const ControlSection = () => {
             </li>
           ))}
         </ul>
-        <h2>
-          Invista no seu futuro financeiro com nosso serviço de Controle
-          Financeiro e Análise de Resultados, e dê um passo à frente na
-          realização dos seus objetivos empresariais!
-        </h2>
+        <Link
+          href="https://api.whatsapp.com/send?phone=551938932236&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20contabilidade."
+          target="_onBlank"
+        >
+          <h2 className="p-5 bg-yellow-500 rounded-full font-bold text-black">
+            Agende uma consulta gratuita!
+          </h2>
+        </Link>
       </article>
     </section>
   );

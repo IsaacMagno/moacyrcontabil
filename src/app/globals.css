@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Isso irá ocultar a barra de rolagem */
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background: #d1d5db;
+}
+
+.div-losango {
+  background-color: #4caf50;
+  transform: rotate(45deg);
+}
+
+.div-image {
+  background-color: #4caf50;
+  transform: rotate(-45deg);
+}
+
+/* Animações para menu-secondary */
+.menu-secondary-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.menu-secondary-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.menu-secondary-exit {
+  opacity: 1;
+}
+.menu-secondary-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 150ms, transform 150ms;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.flex-col-gap-2 {
+  @apply flex flex-col gap-2;
+}
+
+.navbar-contact-buttons-hover {
+  @apply opacity-50 hover:opacity-100 cursor-pointer;
+}
+
+.mobile-sidebar {
+  @apply flex gap-3 items-center justify-center p-3 bg-zinc-300 hover:opacity-80 flex-grow rounded font-semibold;
+}
+
+.mobile-sidebar-link {
+  @apply flex items-center flex-row px-1 py-2  rounded-md hover:cursor-pointer;
+}
+
+.footer-icons {
+  @apply flex items-center gap-4;
+}
+
+strong,
+button,
+mark,
+h1,
+h2,
+h3,
+a,
+span,
+p,
+small {
+  font-style: normal;
+  line-height: normal;
+  color: #323231;
+}
+
+strong {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+mark {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: transparent;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h2,
+h3,
+button,
+span,
+a {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+small {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+hr {
+  height: 2px;
+}
+
+@media screen and (min-width: 90rem) {
+  strong {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+
+  mark {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+
+  h2,
+  span {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h3,
+  a {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  small {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}

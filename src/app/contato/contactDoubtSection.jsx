@@ -40,11 +40,6 @@ const ContactDoubtSection = () => {
       <div className="site-wrap flex flex-col items-stretch gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10 xl:gap-14">
         <section className="flex w-full min-w-0 flex-col lg:max-w-xl xl:max-w-2xl">
           <article className="flex flex-col gap-3">
-            <p className="text-base leading-relaxed text-zinc-700 md:text-lg lg:text-xl">
-              Está com alguma dúvida sobre legislação? Conosco você tem
-              GRATUITAMENTE a vantagem de agendar uma visita presencial com um
-              de nossos profissionais em sua empresa!
-            </p>
             <ul className="flex flex-col gap-1.5 text-sm md:gap-2 md:text-base lg:text-lg">
               {contacts.map(({ href, label, Icon }) => (
                 <li key={href}>

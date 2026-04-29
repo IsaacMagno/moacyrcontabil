@@ -2,7 +2,6 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ContactBar from "@/components/layout/ContactBar";
 import WhatsAppButton from "@/components/whatsapp-button";
 
 const montserrat = Montserrat({
@@ -17,7 +16,6 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="banner mobile.png" as="image" />
       </head>
       <body className={montserrat.className}>
-        <ContactBar />
         <Navbar />
         <main className="relative min-h-screen">
           {children}

@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import heroBackground from "@/../../public/meeting.png";
+import { LogoIcon } from "@/components/svgs";
 
 const HeroSection = () => {
   return (
     <section
-      className="relative isolate flex w-full min-h-[84dvh] flex-col overflow-hidden py-10 text-center md:min-h-[86dvh] md:py-12"
+      className="relative isolate flex w-full min-h-[88dvh] flex-col overflow-hidden py-10 text-center md:min-h-[86dvh] md:py-12"
       aria-labelledby="hero-heading"
     >
       <Image
@@ -19,19 +20,16 @@ const HeroSection = () => {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-zinc-950/80" aria-hidden />
-      <div className="relative z-10 flex min-h-[84dvh] w-full flex-col md:min-h-[86dvh]">
+      <div className="relative z-10 flex min-h-[88dvh] w-full flex-col md:min-h-[86dvh]">
         <div className="site-wrap flex flex-1 flex-col items-center justify-center gap-4 md:gap-5">
           <div className="flex max-w-5xl flex-col items-center gap-5 md:gap-6 lg:gap-8">
+            <LogoIcon className="w-72 text-white sm:w-80 md:w-[28rem] lg:w-[34rem]" />
             <h1
               id="hero-heading"
-              className="text-balance px-2 !text-4xl !font-bold leading-[1.08] tracking-tight text-white sm:!text-5xl md:!text-6xl lg:!text-7xl xl:!text-8xl"
+              className="text-balance px-2 !text-xl !font-bold leading-[1.08] tracking-tight text-white sm:!text-2xl md:!text-3xl lg:!text-4xl xl:!text-5xl"
             >
               60 anos cuidando de empresas
             </h1>
-            <p className="max-w-4xl px-3 !text-lg !font-medium leading-relaxed text-white sm:!text-xl md:!text-2xl lg:!text-3xl">
-              Somos referência no setor contábil. Ética, transparência e
-              compromisso com o seu negócio.
-            </p>
           </div>
         </div>
         <div className="mt-auto flex justify-center pb-8">

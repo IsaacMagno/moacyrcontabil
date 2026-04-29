@@ -28,6 +28,13 @@ const ContactForm = ({ hasMessage, buttonName }) => {
     fields: "",
   });
 
+  const submit = (e) => {
+    if (e?.preventDefault) e.preventDefault();
+    handleClick(formData, setFormData, setError, defaultData, emailType, {
+      requireMessage: Boolean(hasMessage),
+    });
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -45,24 +52,32 @@ const ContactForm = ({ hasMessage, buttonName }) => {
   };
 
   return (
-    <form className="flex flex-col p-6 gap-8 rounded-lg max-w-[25rem] bg-[#323231] lmd:p-10 lmd:gap-10 lg:rounded-3xl">
-      <Input
-        type="text"
-        placeholder="Digite seu nome"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <div className="flex flex-col">
+    <form
+      className="mx-auto flex w-full max-w-md flex-col gap-3 rounded-xl border border-zinc-600/40 bg-[#323231] p-4 shadow-lg md:gap-4 md:p-5 lg:rounded-2xl"
+      onSubmit={submit}
+    >
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-3">
         <Input
-          type="email"
-          placeholder="exemplo@exemplo.com.br"
-          name="email"
-          value={formData.email}
+          type="text"
+          placeholder="Digite seu nome"
+          name="name"
+          value={formData.name}
           onChange={handleChange}
         />
-        <small className="text-red-400 pt-2 mb-[-0.5rem]">{error.email}</small>
+        <div className="flex flex-col">
+          <Input
+            type="email"
+            placeholder="exemplo@exemplo.com.br"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <small className="mt-1 min-h-[1.1rem] text-xs text-red-400">
+            {error.email}
+          </small>
+        </div>
       </div>
+
       <Input
         type="tel"
         placeholder="(xx) x xxxx xxxx"
@@ -70,43 +85,39 @@ const ContactForm = ({ hasMessage, buttonName }) => {
         value={formData.phone}
         onChange={handleChange}
       />
+
       {hasMessage ? (
-        <div className="h-[4.5rem] lmd:h-[8rem]">
-          <Textarea
-            placeholder="Digite sua mensagem"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-          />
-        </div>
+        <Textarea
+          placeholder="Digite sua mensagem"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+        />
       ) : null}
-      <small className="text-white mt-[-1.5rem] mb-[-1rem]">
+
+      <small className="text-xs text-white/90">
         (Todos campos são obrigatórios.)
       </small>
-      <div className="flex gap-2 items-center">
-        <label htmlFor="agree" aria-label="Aceitar termos">
+
+      <label className="flex cursor-pointer flex-row items-start gap-3">
+        <span className="flex shrink-0 pt-0.5">
           <Input
             type="checkbox"
             name="agree"
             checked={formData.agree}
             onChange={handleChange}
           />
-        </label>
-        <small className="text-white">
+        </span>
+        <small className="flex-1 text-xs leading-snug text-white/95">
           Aceito receber e-mails com ofertas e conteúdos. Prometemos não
           utilizar suas informações para spam, clique aqui e veja nossa Política
           de Dados
         </small>
-      </div>
-      <div className="flex flex-col w-full gap-2">
-        <Button
-          onClick={() =>
-            handleClick(formData, setFormData, setError, defaultData, emailType)
-          }
-          name={buttonName}
-          hasBorder
-        />
-        <small className="text-red-400">{error.fields}</small>
+      </label>
+
+      <div className="flex w-full flex-col gap-1.5">
+        <Button onClick={submit} name={buttonName} hasBorder />
+        <small className="text-xs text-red-400">{error.fields}</small>
       </div>
     </form>
   );

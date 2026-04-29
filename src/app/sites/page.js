@@ -130,8 +130,8 @@ const page = () => {
   return (
     <div>
       <BannerSites />
-      <div className="flex flex-col lg:flex-row justify-center gap-20 items-start py-20 bg-[#E9E9E9]">
-        <div className="px-4  flex flex-col justify-center">
+      <div className="site-wrap flex flex-col items-start justify-center gap-12 bg-gray-50 py-12 lg:flex-row lg:items-start lg:gap-20 lg:py-20">
+        <div className="flex min-w-0 flex-1 flex-col justify-center">
           <h1 className="my-4">Sites</h1>
           <ul>
             {Sites.map((site, index) => (
@@ -143,7 +143,7 @@ const page = () => {
             ))}
           </ul>
         </div>
-        <div className="p-4  flex flex-col justify-center">
+        <div className="flex min-w-0 flex-1 flex-col justify-center lg:max-w-xl">
           <h1 className="my-4 lg:my-0 lg:mb-4">Certidão Negativa</h1>
           <ul>
             {CND.map((cnd, index) => (

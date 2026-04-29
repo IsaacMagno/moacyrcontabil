@@ -7,17 +7,21 @@ export const metadataInicial = {
   icons: defaultIcon,
 };
 
-export const metadataInstitutional = {
-  title: "Gasparini Contabilidade | Institucional",
+/** Página Currículos (rota /curriculos) */
+export const metadataCurriculos = {
+  title: "Gasparini Contabilidade | Currículos",
   description:
-    "Há mais de 50 anos entregando soluções contábeis personalizadas e eficazes para nossos clientes.",
+    "Envie seu currículo e faça parte da equipe Gasparini Contabilidade.",
   icons: defaultIcon,
 };
+
+/** @deprecated Use metadataCurriculos */
+export const metadataInstitutional = metadataCurriculos;
 
 export const metadataContact = {
   title: "Gasparini Contabilidade | Contato",
   description:
-    "Faça mais pelo seu negócio. Deixe nossa equipe contábil guià-lo!",
+    "Entre em contato conosco e conte com atendimento presencial e digital.",
   icons: defaultIcon,
 };
 

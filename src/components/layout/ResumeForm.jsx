@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Input from "./Input";
 import Textarea from "./Textarea";
-import LinkButton from "./LinkButton";
 import Dropdown from "./Dropdown";
-import { Attach } from "../svgs";
 import { validateEmail } from "@/app/utils/validateEmail";
 import FileButton from "./FileButton";
 import { handleClick } from "@/app/utils/handleClick";
@@ -61,123 +59,125 @@ const ResumeForm = () => {
   };
 
   return (
-    <form className="flex flex-col gap-6 rounded-lg bg-[#323231] lmd:w-full">
-      <section className="flex flex-col gap-2 items-start w-full">
+    <form className="flex flex-col gap-4 rounded-lg bg-[#323231] lmd:w-full">
+      <section className="flex w-full flex-col items-start gap-1.5">
         <p className="text-white">Currículo (formato.pdf)</p>
         <FileButton onChange={handleFileChange} />
       </section>
-      <section className="flex flex-col gap-6 w-[20.5rem] lg:w-[54rem] lmd:w-full">
-        <p className="text-white mb-[-1rem]">Dados pessoais:</p>
-        <small className="text-white mt-[-0.5rem]">
-          (Todos campos são obrigatórios.)
-        </small>
-        <Input
-          name="name"
-          value={formData.name}
-          type="text"
-          placeholder="Nome"
-          onChange={handleChange}
-        />
-        <Textarea
-          name="address"
-          value={formData.address}
-          type="email"
-          placeholder="Endereço"
-          onChange={handleChange}
-        />
-        <div className="flex flex-col gap-6 w-[13rem] lg:flex-row lg:w-full">
+      <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
+        <section className="flex w-full flex-col gap-4">
+          <p className="text-white mb-[-1rem]">Dados pessoais:</p>
+          <small className="text-white mt-[-0.5rem]">
+            (Todos campos são obrigatórios.)
+          </small>
           <Input
-            name="city"
-            value={formData.city}
+            name="name"
+            value={formData.name}
             type="text"
-            placeholder="Cidade"
+            placeholder="Nome"
             onChange={handleChange}
           />
-          <Input
-            name="maritalStatus"
-            value={formData.maritalStatus}
-            type="text"
-            placeholder="Estado Civil"
-            onChange={handleChange}
-          />
-          <Input
-            name="age"
-            value={formData.age}
-            type="number"
-            placeholder="Idade"
-            onChange={handleChange}
-          />
-          <Input
-            name="numberChildren"
-            value={formData.numberChildren}
-            type="number"
-            placeholder="Número de Filhos"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <Input
-            name="email"
-            value={formData.email}
+          <Textarea
+            name="address"
+            value={formData.address}
             type="email"
-            placeholder="Email"
+            placeholder="Endereço"
             onChange={handleChange}
           />
-          <small className="text-red-400 mb-[-0.5rem]">{error.email}</small>
-        </div>
+          <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+            <Input
+              name="city"
+              value={formData.city}
+              type="text"
+              placeholder="Cidade"
+              onChange={handleChange}
+            />
+            <Input
+              name="maritalStatus"
+              value={formData.maritalStatus}
+              type="text"
+              placeholder="Estado Civil"
+              onChange={handleChange}
+            />
+            <Input
+              name="age"
+              value={formData.age}
+              type="number"
+              placeholder="Idade"
+              onChange={handleChange}
+            />
+            <Input
+              name="numberChildren"
+              value={formData.numberChildren}
+              type="number"
+              placeholder="Número de Filhos"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <Input
+              name="email"
+              value={formData.email}
+              type="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+            <small className="text-red-400 mb-[-0.5rem]">{error.email}</small>
+          </div>
 
-        <div className="w-[13rem]">
-          <Input
-            name="phone"
-            value={formData.phone}
-            type="tel"
-            placeholder="(xx) x xxxx xxxx"
+          <div className="w-full sm:max-w-xs">
+            <Input
+              name="phone"
+              value={formData.phone}
+              type="tel"
+              placeholder="(xx) x xxxx xxxx"
+              onChange={handleChange}
+            />
+          </div>
+        </section>
+        <section className="flex w-full flex-col gap-4">
+          <p className="text-white mb-[-1rem]">Informações técnicas:</p>
+          <Textarea
+            name="technicalFormation"
+            value={formData.technicalFormation}
+            type="text"
+            placeholder="Formação Técnica"
             onChange={handleChange}
           />
-        </div>
-      </section>
-      <section className="flex flex-col gap-6 w-[20.5rem] lg:w-[54rem] lmd:w-full">
-        <p className="text-white mb-[-1rem]">Informações técnicas:</p>
-        <Textarea
-          name="technicalFormation"
-          value={formData.technicalFormation}
-          type="text"
-          placeholder="Formação Técnica"
-          onChange={handleChange}
-        />
-        <Textarea
-          name="higherEducation"
-          value={formData.higherEducation}
-          type="text"
-          placeholder="Formação Superior"
-          onChange={handleChange}
-        />
-        <Textarea
-          name="practicesComment"
-          value={formData.practicesComment}
-          type="text"
-          placeholder="Comentário de suas práticas"
-          onChange={handleChange}
-        />
-        <label htmlFor="role" className="w-[13rem]" aria-label="Cargo pretendido">
-          <Dropdown
-            name={"role"}
-            value={formData.role}
-            type="email"
-            placeholder="Cargo pretendido"
-            values={values}
+          <Textarea
+            name="higherEducation"
+            value={formData.higherEducation}
+            type="text"
+            placeholder="Formação Superior"
             onChange={handleChange}
           />
-        </label>
-        <Textarea
-          name="about"
-          value={formData.about}
-          type="text"
-          placeholder="Mais sobre o cargo pretendido"
-          onChange={handleChange}
-        />
-      </section>
-      <div className="flex flex-col gap-2">
+          <Textarea
+            name="practicesComment"
+            value={formData.practicesComment}
+            type="text"
+            placeholder="Comentário de suas práticas"
+            onChange={handleChange}
+          />
+          <label htmlFor="role" className="w-full sm:max-w-xs" aria-label="Cargo pretendido">
+            <Dropdown
+              name={"role"}
+              value={formData.role}
+              type="email"
+              placeholder="Cargo pretendido"
+              values={values}
+              onChange={handleChange}
+            />
+          </label>
+          <Textarea
+            name="about"
+            value={formData.about}
+            type="text"
+            placeholder="Mais sobre o cargo pretendido"
+            onChange={handleChange}
+          />
+        </section>
+      </div>
+      <div className="flex flex-col gap-1.5">
         <div>
           <Button
             name="Enviar informações"

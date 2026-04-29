@@ -1,28 +1,40 @@
 /**
  * @param {string} props.name - O texto do botão.
  * @param {string} props.href - O URL para o qual o botão direciona.
- * @param {string} [props.icon] - O ícone opcional para ser exibido ao lado do texto do botão.
- * @param {boolean} [props.hasBorder] - Define se o botão tem borda.
- * @param {boolean} [props.wppButton] - Define se o botão é específico para WhatsApp.
- * @param {function} [props.onClick] - Define a função que será chamada ao clicar.
+ * @param {string} [props.icon] - O ícone opcional para ser lado do texto.
+ * @param {boolean} [props.hasBorder] - Legado; CTAs usam estilo único.
+ * @param {boolean} [props.wppButton] - Botão específico para WhatsApp (verde).
+ * @param {function} [props.onClick] - Callback opcional ao clicar.
  */
 
-const LinkButton = ({ name, href, icon, wppButton, hasBorder, onClick, target }) => {
+const LinkButton = ({
+  name,
+  href,
+  icon,
+  wppButton,
+  hasBorder: _legacyHasBorder,
+  onClick,
+  target,
+}) => {
+  const base =
+    "inline-flex cursor-pointer items-center justify-center gap-2 rounded-3xl border border-transparent px-4 py-2 font-semibold transition-all duration-200 lmd:px-5 lmd:py-3";
+
+  const ctaClasses =
+    "bg-[#F6BE25] text-gray-900 hover:brightness-110 hover:scale-[1.03] active:scale-[0.98]";
+
+  const wppClasses =
+    "flex-row-reverse bg-[#24B600] text-white hover:bg-[#209900] hover:brightness-105 active:scale-[0.98]";
+
   return (
     <a
       onClick={onClick}
       href={href}
       target={target}
-      className={`${
-        !wppButton
-          ? `bg-[#F6BE25] hover:text-[#F6BE25] ${
-              hasBorder ? "hover:border hover:border-[#F6BE25]" : null
-            }`
-          : "bg-[#24B600] hover:text-[#24B600] flex-row-reverse"
-      } inline-flex justify-center items-center border border-transparent rounded-3xl py-2 px-4 gap-2 hover:bg-[#323231] cursor-pointer lmd:p-3`}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      className={`${base} ${wppButton ? wppClasses : ctaClasses}`}
     >
       {name}
-      {icon ? <div className="w-4 lg:w-6">{icon}</div> : null}
+      {icon ? <div className="w-4 shrink-0 lg:w-6">{icon}</div> : null}
     </a>
   );
 };

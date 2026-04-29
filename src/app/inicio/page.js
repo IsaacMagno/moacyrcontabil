@@ -1,35 +1,29 @@
-import ServiceSection from "./serviceSection";
-import ContactSection from "../../components/commum-sections/contactSection";
-import DreamSection from "../../components/commum-sections/dreamSection";
-import AboutSection from "./aboutSection";
 import HeroSection from "./heroSection";
 import MainSection from "./mainSection";
-import PreventionSection from "./preventionSection";
-// import InfoSection from "../../components/layout/infoSection";
+import ServicesShowcaseSection from "./servicesShowcaseSection";
+import ContactDoubtSection from "../contato/contactDoubtSection";
+import LocationSection from "../contato/locationSection";
+import ResumeSection from "../curriculos/resumeSection";
 import { metadataInicial } from "@/helpers/metadata";
-import DigitalSection from "./digitalSection";
-import CertificateSection from "./certificateSection";
-import PlanningSection from "./planningSection";
-import ControlSection from "./controlSection";
 
 export const metadata = metadataInicial;
 
 export default function Inicio() {
   return (
     <div>
+      <HeroSection />
       <MainSection>
-        <HeroSection />
-        {/* <InfoSection /> */}
-        <PreventionSection />
-        <DigitalSection />
+        <ServicesShowcaseSection />
       </MainSection>
-      <CertificateSection />
-      <PlanningSection />
-      <ControlSection />
-      <ServiceSection />
-      <ContactSection />
-      <AboutSection />
-      <DreamSection />
+
+      <section id="contato" className="scroll-mt-24">
+        <ContactDoubtSection />
+        <LocationSection />
+      </section>
+
+      <section id="curriculos" className="scroll-mt-24">
+        <ResumeSection />
+      </section>
     </div>
   );
 }

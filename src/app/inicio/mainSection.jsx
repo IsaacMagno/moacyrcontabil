@@ -1,8 +1,13 @@
 const MainSection = ({ children }) => {
   return (
-    <main className="flex flex-col items-center justify-center px-4 py-6 gap-6 bg-los-mobile bg-cover bg-no-repeat lg:bg-los-desktop lg:gap-32 lg:px-20 lg:py-16 xlg:px-32 ">
-      {children}
-    </main>
+    <section
+      aria-label="Conteúdo da página"
+      className="border-t border-gray-200/60 bg-[#E9E9E9] py-4 sm:py-5 lg:py-6 xlg:py-7"
+    >
+      <div className="site-wrap flex flex-col items-center justify-start gap-3 sm:gap-4 lg:gap-5">
+        {children}
+      </div>
+    </section>
   );
 };
 

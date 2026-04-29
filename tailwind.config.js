@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          yellow: "#F6BE25",
+          dark: "#323231",
+          green: "#24B600",
+        },
+      },
       backgroundImage: {
         "banner-mobile": "url('../../public/banner mobile.png')",
         "banner-contact": "url('../../public/banner contact.png')",

@@ -8,9 +8,14 @@ import LinkButton from "./LinkButton";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center bg-[#E9E9E9] gap-[0.625rem] py-[1.3125rem] px-8">
-      <div className="flex flex-col items-center justify-center w-full gap-4 py-[0.625rem] lg:flex-row lg:justify-between xlg:px-32">
-        <a href="/inicio" aria-label="Página inicial">
+    <div className="flex flex-col items-center gap-4 border-t border-gray-200 bg-gray-50 py-8 lg:gap-6 lg:py-10">
+      <div className="site-wrap flex flex-col items-center gap-4">
+      <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-5 py-2 lg:flex-row lg:justify-between lg:gap-8">
+        <a
+          href="/inicio"
+          aria-label="Página inicial"
+          className="text-brand-dark"
+        >
           <LogoIcon className="w-36 lmd:w-[14rem]" />
         </a>
         <LinkButton
@@ -20,24 +25,24 @@ const Footer = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center py-4 gap-6 w-full border-t border-[#cbcbcb] lg:py-8 lg:gap-10 lmd:flex-row lmd:gap-[10rem] lmd:justify-center">
-        <div className="flex flex-col items-start w-full gap-6 lg:flex-row lg:gap-32 lg:justify-center lmd:gap-16 lmd:h-[19.31rem] lmd:justify-between lmd:w-[36rem]">
-          <div className="flex flex-col items-start gap-2 w-full lg:w-[19.5rem]">
-            <h2>Gasparini Contabilidade</h2>
-            <small>
+      <div className="flex w-full max-w-6xl flex-col gap-8 border-t border-gray-200/90 py-6 lg:flex-row lg:justify-center lg:gap-16 lg:py-8">
+        <div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-between lg:gap-20">
+          <div className="flex max-w-md flex-col gap-2">
+            <h2 className="text-gray-900">Gasparini Contabilidade</h2>
+            <small className="text-gray-700">
               Almejamos impactar positivamente a vida dos nossos clientes,
               capacitando-os a contribuir significativamente para o progresso do
               Brasil.
             </small>
           </div>
 
-          <div className="flex flex-col items-start gap-2 w-full lg:w-[18.5rem] lmd:w-[8.5rem]">
-            <h2>Navegação</h2>
-            <ul className="flex flex-col">
+          <div className="flex flex-col gap-2 lg:w-48">
+            <h2 className="text-gray-900">Navegação</h2>
+            <ul className="flex flex-col gap-1">
               {navbarButtonList.map((button, index) => (
-                <li>
+                <li key={index}>
                   <Link href={button[index][1]}>
-                    <small className="hover:text-[#6f6f6f]">
+                    <small className="text-gray-700 hover:text-[#6f6f6f]">
                       {button[index][0]}
                     </small>
                   </Link>
@@ -47,48 +52,42 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-start w-full gap-6 lg:flex-row lg:gap-32 lg:justify-center lmd:gap-16 lmd:h-[19.31rem] lmd:justify-between lmd:w-[40rem]">
-          <div className="flex flex-col items-start gap-2 w-full lg:w-[19.5rem]">
-            <h2>Especialidades</h2>
-            <div className="flex flex-col gap-1">
-              <small>Prevenção de risco empresarial</small>
-              <small>Planejamento e controle financeiro</small>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-start gap-2 w-full lg:w-[18.5rem]">
-            <h2>Como nos achar</h2>
-            <section className="flex items-center gap-2">
+        <div className="flex w-full flex-col gap-6 lg:max-w-md">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-gray-900">Como nos achar</h2>
+            <section className="flex items-start gap-2">
               <span>
                 <LocationIcon className="w-5 lmd:w-8" />
               </span>
               <div className="flex flex-col items-start">
-                <small>Rua Cezira de Queiroz, 474 - Centro</small>
-                <small>Pedreira - São Paulo</small>
-                <small>CEP 13920-000</small>
+                <small className="text-gray-700">
+                  Rua Cezira de Queiroz, 474 - Centro
+                </small>
+                <small className="text-gray-700">Pedreira - São Paulo</small>
+                <small className="text-gray-700">CEP 13920-000</small>
               </div>
             </section>
-            <small className="flex gap-2">
+            <small className="flex gap-2 text-gray-700">
               <span className="w-5 lmd:w-8">
                 <ClockIcon />
               </span>
               Segunda à Sexta das 7:00 ás 17:00
             </small>
-            <small className="flex gap-2">
+            <small className="flex gap-2 text-gray-700">
               <span className="w-5 lmd:w-8">
                 <PhoneIcon />
               </span>
               (19) 3893 2236
             </small>
             <a
-              className="flex gap-2 items-center group"
+              className="group flex items-center gap-2 text-gray-700 hover:text-[#6f6f6f]"
               href="mailto:atendimento01@moacyrcontabil.com.br?subject=Contato Moacyr Contabilidade do E-mail&body=Corpo do E-mail"
             >
-              <Mail className="w-4 group-hover:text-[#6f6f6f] lmd:w-16 lmd:pr-[2rem]" />
-              <small className="group-hover:text-[#6f6f6f] lg:hidden">
+              <Mail className="w-4 lmd:w-16 lmd:pr-[2rem]" />
+              <small className="lg:hidden">
                 Email de contato
               </small>
-              <small className="hidden group-hover:text-[#6f6f6f] lg:block lmd:ml-[-2rem]">
+              <small className="hidden lg:block lmd:ml-[-2rem]">
                 atendimento01@moacyrcontabil
               </small>
             </a>
@@ -96,9 +95,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <small className="w-[12.5rem] lg:w-full lg:text-center">
-        &copy; 2024 Gasparini Contabilidade. Todos os direitos reservados.
+      <small className="w-full max-w-6xl text-center text-gray-600 lg:text-sm">
+        &copy; 2026 Gasparini Contabilidade. Todos os direitos reservados.
       </small>
+      </div>
     </div>
   );
 };

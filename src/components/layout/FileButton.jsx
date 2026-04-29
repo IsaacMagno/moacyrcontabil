@@ -11,7 +11,7 @@ const FileButton = ({ onChange }) => {
     if (selectedFile) {
       setFileName(selectedFile.name);
     }
-    onChange(e);
+    onChange(selectedFile);
   };
 
   const handleClick = () => {

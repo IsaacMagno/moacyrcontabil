@@ -17,9 +17,7 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="banner mobile.png" as="image" />
       </head>
       <body className={montserrat.className}>
-        <div className="hidden lg:block">
-          <ContactBar />
-        </div>
+        <ContactBar />
         <Navbar />
         <main className="relative min-h-screen">
           {children}

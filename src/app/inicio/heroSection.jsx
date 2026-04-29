@@ -1,72 +1,53 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import vector from "/public/vector.png";
-
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-import { EffectFade, Autoplay } from "swiper/modules";
-import LinkButton from "@/components/layout/LinkButton";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import heroBackground from "@/../../public/meeting.png";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col w-full items-center justify-center gap-6 lg:flex-row-reverse lg:justify-between h-[10rem] lg:h-[0.1rem] lmd:h-[1rem] xlg:h-[35rem]">
-      {/* Desktop view */}
-      {/* <div className="relative w-60 h-60 lg:w-[25rem] lg:h-[25rem] lmd:w-[38rem] lmd:h-[38rem] xlg:w-[45rem] xlg:h-[45rem] hidden lg:block">
-        <Image src={vector} fill className="opacity-70" />
-        <span className="flex flex-col text-center absolute top-[5rem] right-[-3.2rem] lg:top-[9.5rem] lg:right-[1.5rem] lmd:top-[14rem] lmd:right-[3.3rem] xlg:top-[17rem] xlg:right-28 w-[20rem] lmd:w-[30.6rem]">
-          <strong>Gasparini Contabilidade,</strong>
-          <mark>há mais de 50 anos</mark>
-          <strong>ajudando empresas!</strong>
-        </span>
-      </div> */}
-
-      {/* Mobile view */}
-      {/* <div className="relative w-full max-w-xs h-60 lg:max-w-xl lg:h-80 lmd:max-w-2xl lmd:h-96 xlg:max-w-3xl xlg:h-[30rem] mx-auto block lg:hidden">
-        <Image
-          src={vector || "/placeholder.svg"}
-          fill
-          className="opacity-70 object-contain"
-          alt="Vector background"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="flex flex-col text-center w-full max-w-xs lg:max-w-md lmd:max-w-lg px-4 ">
-            <strong className="text-2xl">Gasparini Contabilidade,</strong>
-            <mark className="bg-transparent text-2xl">há mais de 50 anos</mark>
-            <strong className="text-2xl">ajudando empresas!</strong>
-          </span>
+    <section
+      className="relative isolate flex w-full min-h-[84dvh] flex-col overflow-hidden py-10 text-center md:min-h-[86dvh] md:py-12"
+      aria-labelledby="hero-heading"
+    >
+      <Image
+        src={heroBackground}
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-zinc-950/80" aria-hidden />
+      <div className="relative z-10 flex min-h-[84dvh] w-full flex-col md:min-h-[86dvh]">
+        <div className="site-wrap flex flex-1 flex-col items-center justify-center gap-4 md:gap-5">
+          <div className="flex max-w-5xl flex-col items-center gap-5 md:gap-6 lg:gap-8">
+            <h1
+              id="hero-heading"
+              className="text-balance px-2 !text-4xl !font-bold leading-[1.08] tracking-tight text-white sm:!text-5xl md:!text-6xl lg:!text-7xl xl:!text-8xl"
+            >
+              60 anos cuidando de empresas
+            </h1>
+            <p className="max-w-4xl px-3 !text-lg !font-medium leading-relaxed text-white sm:!text-xl md:!text-2xl lg:!text-3xl">
+              Somos referência no setor contábil. Ética, transparência e
+              compromisso com o seu negócio.
+            </p>
+          </div>
         </div>
-      </div> */}
-
-      <section className="flex flex-col items-center justify-center gap-6 lg:items-start">
-        {/* <mark className="absolute top-0 left-10">Presencial e a distância</mark> */}
-
-        <span className="flex flex-col absolute top-10 left-5 lg:left-10">
-          <mark>Somos referência no setor contábil,</mark>
-          <strong>há mais de 50 anos, comprometidos com a ética,</strong>
-          <mark>a transparência e o compromisso.</mark>
-        </span>
-        {/* <div className="flex flex-col items-center justify-center gap-6 lmd:flex-row">
-          <LinkButton
-            href="/servicos"
-            name="Conheça soluções presenciais e online"
-          />
-          <Link
-            href="https://api.whatsapp.com/send?phone=551938932236&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20contabilidade."
-            target="_blank"
-            className="flex gap-2 items-center hover:opacity-80"
+        <div className="mt-auto flex justify-center pb-8">
+          <a
+            href="#servicos"
+            aria-label="Rolar para serviços"
+            className="inline-flex text-white/80 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow"
           >
-            <h3>Fale com um especialista</h3>
-            <ArrowRight />
-          </Link>
-        </div> */}
-      </section>
+            <ChevronDown
+              className="h-8 w-8 animate-bounce"
+              aria-hidden
+              strokeWidth={2}
+            />
+          </a>
+        </div>
+      </div>
     </section>
   );
 };

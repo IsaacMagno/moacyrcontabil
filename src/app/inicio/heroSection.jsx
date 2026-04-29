@@ -23,7 +23,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex min-h-[88dvh] w-full flex-col md:min-h-[86dvh]">
         <div className="site-wrap flex flex-1 flex-col items-center justify-center gap-4 md:gap-5">
           <div className="flex max-w-5xl flex-col items-center gap-5 md:gap-6 lg:gap-8">
-            <LogoIcon className="w-72 text-white sm:w-80 md:w-[28rem] lg:w-[34rem]" />
+            <LogoIcon className="mb-12 w-72 text-white sm:mb-14 sm:w-80 md:mb-[4.5rem] md:w-[28rem] lg:mb-24 lg:w-[34rem]" />
             <h1
               id="hero-heading"
               className="text-balance px-2 !text-xl !font-bold leading-[1.08] tracking-tight text-white sm:!text-2xl md:!text-3xl lg:!text-4xl xl:!text-5xl"

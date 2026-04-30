@@ -60,14 +60,14 @@ const ResumeForm = () => {
 
   return (
     <form className="flex flex-col gap-4 rounded-lg bg-[#323231] lmd:w-full">
-      <section className="flex w-full flex-col items-start gap-1.5">
+      <section className="flex w-full flex-col items-center gap-1.5 text-center lg:items-start lg:text-left">
         <p className="text-white">Currículo (formato.pdf)</p>
         <FileButton onChange={handleFileChange} />
       </section>
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
-        <section className="flex w-full flex-col gap-4">
-          <p className="text-white mb-[-1rem]">Dados pessoais:</p>
-          <small className="text-white mt-[-0.5rem]">
+        <section className="flex w-full flex-col gap-4 text-center lg:text-left">
+          <p className="mb-[-1rem] text-white">Dados pessoais:</p>
+          <small className="mt-[-0.5rem] text-white">
             (Todos campos são obrigatórios.)
           </small>
           <Input
@@ -135,8 +135,8 @@ const ResumeForm = () => {
             />
           </div>
         </section>
-        <section className="flex w-full flex-col gap-4">
-          <p className="text-white mb-[-1rem]">Informações técnicas:</p>
+        <section className="flex w-full flex-col gap-4 text-center lg:text-left">
+          <p className="mb-[-1rem] text-white">Informações técnicas:</p>
           <Textarea
             name="technicalFormation"
             value={formData.technicalFormation}
@@ -177,8 +177,8 @@ const ResumeForm = () => {
           />
         </section>
       </div>
-      <div className="flex flex-col gap-1.5">
-        <div>
+      <div className="flex flex-col items-center gap-1.5 text-center lg:items-start lg:text-left">
+        <div className="w-full lg:w-auto">
           <Button
             name="Enviar informações"
             onClick={() =>

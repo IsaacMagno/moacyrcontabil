@@ -86,11 +86,11 @@ let CND = [
   },
   {
     nome: "CND Pessoa Fisica",
-    link: "https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/PF/Emitir",
+    link: "https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cpf",
   },
   {
     nome: "CND do ITR",
-    link: "https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/Emitir",
+    link: "https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cib",
   },
   {
     nome: "CND do Ibama",

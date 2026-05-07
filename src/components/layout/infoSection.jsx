@@ -3,16 +3,11 @@ import { serviceSectionText as info } from "@/helpers/servicesSectionText";
 
 const InfoSection = () => {
   return (
-    <section className="my-10 lg:my-14 xlg:my-32">
-      <div className="site-wrap flex flex-col items-center justify-center gap-4 lg:gap-6 lmd:gap-20 xlg:flex-row xlg:gap-4">
-      <div className="flex flex-col gap-4 lg:flex-row lg:gap-32  lmd:gap-40 xlg:gap-4">
-        <InfoCard title={info[0].title} list={info[0].list} />
-        <InfoCard title={info[1].title} list={info[1].list} />
-      </div>
-      <div className="flex flex-col gap-4 lg:flex-row lg:gap-32  lmd:gap-40 xlg:gap-4">
-        <InfoCard title={info[2].title} list={info[2].list} />
-        <InfoCard title={info[3].title} list={info[3].list} />
-      </div>
+    <section className="w-full my-10 lg:my-14 xlg:my-32">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-5 lmd:gap-6">
+        {info.map(({ title, list }) => (
+          <InfoCard key={title} title={title} list={list} />
+        ))}
       </div>
     </section>
   );

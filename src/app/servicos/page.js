@@ -10,7 +10,9 @@ export default function Servicos() {
   return (
     <main className="h-full bg-[#E9E9E9]">
       <BannerServicesSection />
-      <InfoSection />
+      <div className="site-wrap">
+        <InfoSection />
+      </div>
       <DreamSection />
       <ReasonsSection />
     </main>

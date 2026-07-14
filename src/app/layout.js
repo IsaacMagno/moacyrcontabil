@@ -1,8 +1,6 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/whatsapp-button";
+import SiteChrome from "@/components/layout/SiteChrome";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -11,23 +9,12 @@ const montserrat = Montserrat({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <link rel="preload" href="banner mobile.png" as="image" />
       </head>
       <body className={montserrat.className}>
-        <Navbar />
-        <main className="relative min-h-screen">
-          {children}
-          <WhatsAppButton
-            phoneNumber="+551938932236"
-            message="Olá! Gostaria de saber mais sobre os serviços da contabilidade"
-            position="right"
-            size="lg"
-            offset={24}
-          />
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

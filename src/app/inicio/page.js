@@ -5,9 +5,12 @@ import ContactDoubtSection from "../contato/contactDoubtSection";
 import LocationSection from "../contato/locationSection";
 import ResumeSection from "../curriculos/resumeSection";
 import InfoSection from "../../components/layout/infoSection";
+import BoletinsSection from "./boletinsSection";
 import { metadataInicial } from "@/helpers/metadata";
 
 export const metadata = metadataInicial;
+
+export const dynamic = "force-dynamic";
 
 export default function Inicio() {
   return (
@@ -16,6 +19,7 @@ export default function Inicio() {
       <MainSection>
         <ServicesShowcaseSection />
         <InfoSection />
+        <BoletinsSection />
       </MainSection>
 
       <section id="contato" className="scroll-mt-24">

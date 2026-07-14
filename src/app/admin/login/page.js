@@ -22,20 +22,30 @@ export default function AdminLoginPage() {
     }
 
     setLoading(true);
-    const supabase = createClient();
-    const { error: authError } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password,
-    });
 
-    if (authError) {
-      setError("E-mail ou senha inválidos.");
+    try {
+      const supabase = createClient();
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+
+      if (authError) {
+        setError("E-mail ou senha inválidos.");
+        return;
+      }
+
+      router.replace("/admin/boletins");
+      router.refresh();
+    } catch (err) {
+      setError(
+        err?.message?.includes("Supabase")
+          ? err.message
+          : "Não foi possível entrar. Tente novamente."
+      );
+    } finally {
       setLoading(false);
-      return;
     }
-
-    router.push("/admin/boletins");
-    router.refresh();
   };
 
   return (

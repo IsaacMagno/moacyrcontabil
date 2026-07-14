@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="preload" href="banner mobile.png" as="image" />
+        <link rel="preload" href="/banner%20mobile.png" as="image" />
       </head>
       <body className={montserrat.className}>
         <SiteChrome>{children}</SiteChrome>

@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import { Mail } from "lucide-react";
 import { navbarButtonList } from "@/helpers/navBarButtonText";
-import { ClockIcon, LocationIcon, LogoIcon, PhoneIcon } from "../svgs";
+import { ClockIcon, LocationIcon, PhoneIcon } from "../svgs";
 import LinkButton from "./LinkButton";
+import AdminLogoGate from "./AdminLogoGate";
 
 const Footer = () => {
   return (
@@ -13,13 +14,9 @@ const Footer = () => {
       <div className="flex w-full max-w-6xl flex-col gap-8 border-t border-gray-200/90 py-6 text-center lg:flex-row lg:justify-center lg:gap-16 lg:py-8 lg:text-left">
         <div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-between lg:gap-20">
           <div className="flex w-full flex-col items-center justify-center gap-4 lg:w-auto lg:items-start lg:justify-start">
-            <a
-              href="/inicio"
-              aria-label="Página inicial"
-              className="text-brand-dark lg:translate-x-6"
-            >
-              <LogoIcon className="w-36 lmd:w-[14rem]" />
-            </a>
+            <div className="text-brand-dark lg:translate-x-6">
+              <AdminLogoGate className="w-36 lmd:w-[14rem]" />
+            </div>
             <div className="lg:self-start">
               <LinkButton
                 href="https://api.whatsapp.com/send?phone=551938932236&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20contabilidade."

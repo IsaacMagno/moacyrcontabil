@@ -6,12 +6,13 @@
 
 ## Acesso ao painel
 
-- URL: `/admin/login`
+- No site, clique **5 vezes rápido** no **logo** (hero da home ou rodapé) → abre a tela de login.
+- Ou acesse diretamente: `/admin/login`
 - Use o **e-mail e senha** criados no Supabase Auth (fornecidos pelo desenvolvedor).
 
 ## Publicar um boletim
 
-1. Acesse `/admin/login` e entre com seu e-mail e senha.
+1. Entre no painel (5 cliques no logo ou `/admin/login`) com e-mail e senha.
 2. Clique em **Novo boletim**.
 3. Preencha o **título** e a **data de publicação**.
 4. Selecione o arquivo **PDF** (máximo 10MB).

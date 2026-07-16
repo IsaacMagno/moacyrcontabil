@@ -17,9 +17,9 @@ export default function Inicio() {
     <div>
       <HeroSection />
       <MainSection>
+        <BoletinsSection />
         <ServicesShowcaseSection />
         <InfoSection />
-        <BoletinsSection />
       </MainSection>
 
       <section id="contato" className="scroll-mt-24">

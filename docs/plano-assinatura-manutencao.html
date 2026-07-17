@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plano de Manutenção — Gasparini Contabilidade</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: #323231;
+      background: #fff;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      overflow: hidden;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* —— CAPA —— */
+    .cover {
+      background: linear-gradient(145deg, #1a1a19 0%, #323231 55%, #2a2a28 100%);
+      color: #fff;
+      padding: 42px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(246, 190, 37, 0.12);
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      bottom: 100px;
+      left: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(246, 190, 37, 0.08);
+    }
+    .cover-top { position: relative; z-index: 1; }
+    .badge {
+      display: inline-block;
+      background: #F6BE25;
+      color: #1a1a19;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .cover h1 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 460px;
+      margin-bottom: 14px;
+    }
+    .cover h1 span { color: #F6BE25; }
+    .cover-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      max-width: 420px;
+      margin-bottom: 32px;
+    }
+    .cover-benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-benefit {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+    .cover-benefit strong {
+      display: block;
+      color: #F6BE25;
+      font-size: 11px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .cover-footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+    .cover-footer strong { color: #fff; display: block; font-size: 15px; }
+
+    /* —— PÁGINA INTERNA —— */
+    .inner {
+      padding: 22px 36px 18px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c49a10;
+      margin-bottom: 4px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #1a1a19;
+    }
+    p.lead {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+      align-items: stretch;
+    }
+    .plan {
+      border: 2px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 14px 12px 12px;
+      position: relative;
+      background: #fafafa;
+    }
+    .plan.featured {
+      border-color: #F6BE25;
+      background: linear-gradient(180deg, #fffdf5 0%, #fff 100%);
+      box-shadow: 0 4px 16px rgba(246, 190, 37, 0.16);
+    }
+    .plan-tag {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #F6BE25;
+      color: #1a1a19;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    .plan-price {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a19;
+      line-height: 1;
+    }
+    .plan-price small {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+    }
+    .plan-desc {
+      font-size: 10.5px;
+      color: #666;
+      margin: 5px 0 6px;
+      min-height: 26px;
+    }
+    .plan ul { list-style: none; font-size: 10.5px; }
+    .plan li {
+      padding: 4px 0;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .plan li::before {
+      content: "✓";
+      color: #24B600;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .plan li.highlight::before { color: #F6BE25; }
+    .plan li.highlight { font-weight: 600; color: #1a1a19; }
+
+    table.compare {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-bottom: 8px;
+    }
+    table.compare th,
+    table.compare td {
+      padding: 5px 10px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    table.compare th {
+      background: #323231;
+      color: #fff;
+      font-weight: 600;
+    }
+    table.compare th:first-child { border-radius: 6px 0 0 0; }
+    table.compare th:last-child { border-radius: 0 6px 0 0; }
+    table.compare th.featured { background: #F6BE25; color: #1a1a19; }
+    table.compare tr:nth-child(even) td { background: #fafafa; }
+    table.compare td.center { text-align: center; }
+    table.compare .best { color: #24B600; font-weight: 700; }
+
+    .note {
+      font-size: 9.5px;
+      line-height: 1.4;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .mid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .box {
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fafafa;
+    }
+    .box h3 {
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #1a1a19;
+    }
+    .box ul { padding-left: 16px; }
+    .box li {
+      font-size: 10.5px;
+      color: #555;
+      margin-bottom: 2px;
+    }
+
+    .example {
+      background: linear-gradient(135deg, #323231 0%, #1a1a19 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+    .example h3 {
+      font-size: 12px;
+      color: #F6BE25;
+      margin-bottom: 10px;
+    }
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .example-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .example-item .label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2px;
+    }
+    .example-item .value {
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .example-item .value.strike {
+      text-decoration: line-through;
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+    }
+    .example-item.featured .value { color: #F6BE25; }
+    .example p {
+      font-size: 10.5px;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .cta {
+      background: #F6BE25;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+    }
+    .cta h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1a1a19;
+      margin-bottom: 2px;
+    }
+    .cta p { font-size: 11.5px; color: #3d3d3b; }
+    .cta-contact {
+      text-align: right;
+      font-size: 12px;
+      color: #1a1a19;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .page-footer {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #eee;
+      font-size: 10px;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1 — CAPA -->
+  <div class="page cover">
+    <div class="cover-top">
+      <div class="badge">Proposta exclusiva</div>
+      <h1>Plano de <span>Manutenção</span> do Site</h1>
+      <p class="cover-sub">
+        Mantenha o site da Gasparini Contabilidade sempre atualizado, com suporte contínuo,
+        descontos em projetos e créditos que acumulam quando você não precisa alterar nada.
+      </p>
+    </div>
+
+    <div class="cover-benefits">
+      <div class="cover-benefit">
+        <strong>Sem surpresas</strong>
+        Valor fixo mensal com crédito para alterações no site, do simples ao mais elaborado.
+      </div>
+      <div class="cover-benefit">
+        <strong>Crédito sem validade</strong>
+        Não usou no mês? O valor vira saldo e fica guardado para quando precisar.
+      </div>
+      <div class="cover-benefit">
+        <strong>Desconto em projetos</strong>
+        Novos recursos (boletins, formulários, seções) saem mais baratos.
+      </div>
+      <div class="cover-benefit">
+        <strong>Prioridade</strong>
+        Quanto maior o plano, mais prioridade na fila de atendimento dos seus pedidos.
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div>
+        <strong>Gasparini Contabilidade</strong>
+        https://moacyrcontabil.com.br/
+      </div>
+      <div style="text-align: right;">
+        Preparado por<br />
+        <strong>Desenvolvedor Isaac Miranda</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2 — TUDO COMPACTO -->
+  <div class="page inner">
+    <div class="section-label">Escolha seu plano</div>
+    <h2>Três opções, cada uma mais vantajosa</h2>
+    <p class="lead">
+      O valor mensal vira <strong>crédito de serviço</strong> que vale para qualquer alteração no site —
+      pequena, média ou projetos completos. Se o pedido couber no saldo, não paga nada a mais;
+      se ultrapassar, paga só a diferença, sempre com o desconto do seu plano.
+      O crédito acumulado <strong>não expira</strong>.
+    </p>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Essencial</div>
+        <div class="plan-price">R$ 89<small>/mês</small></div>
+        <div class="plan-desc">Ideal para quem altera o site poucas vezes ao ano.</div>
+        <ul>
+          <li>R$ 89 em crédito/mês (~3 pequenas ou ~1 média)</li>
+          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li class="highlight">10% de desconto em todo serviço</li>
+          <li>Crédito acumula e não expira</li>
+          <li>Prioridade padrão na fila</li>
+        </ul>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-tag">Mais escolhido</div>
+        <div class="plan-name">Profissional</div>
+        <div class="plan-price">R$ 159<small>/mês</small></div>
+        <div class="plan-desc">Melhor custo-benefício para a maioria dos clientes.</div>
+        <ul>
+          <li>R$ 159 em crédito/mês (~5 pequenas ou ~1–2 médias)</li>
+          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li class="highlight">22% de desconto em todo serviço</li>
+          <li>Crédito acumula e não expira</li>
+          <li>Prioridade alta na fila</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">R$ 279<small>/mês</small></div>
+        <div class="plan-desc">Prioridade máxima e o maior desconto.</div>
+        <ul>
+          <li>R$ 279 em crédito/mês (~9 pequenas ou ~3 médias)</li>
+          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li class="highlight">35% de desconto em todo serviço</li>
+          <li>Crédito acumula e não expira</li>
+          <li>Prioridade máxima na fila</li>
+          <li>Revisão mensal rápida do site</li>
+        </ul>
+      </div>
+    </div>
+
+    <table class="compare">
+      <thead>
+        <tr>
+          <th>Benefício</th>
+          <th class="center">Essencial</th>
+          <th class="center featured">Profissional</th>
+          <th class="center">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Valor mensal</td>
+          <td class="center">R$ 89</td>
+          <td class="center"><strong>R$ 159</strong></td>
+          <td class="center">R$ 279</td>
+        </tr>
+        <tr>
+          <td>Crédito mensal (estimativa)*</td>
+          <td class="center">~3 pequenas ou ~1 média</td>
+          <td class="center">~5 pequenas ou ~1–2 médias</td>
+          <td class="center best">~9 pequenas ou ~3 médias</td>
+        </tr>
+        <tr>
+          <td>Desconto em todo serviço</td>
+          <td class="center">10%</td>
+          <td class="center best">22%</td>
+          <td class="center best">35%</td>
+        </tr>
+        <tr>
+          <td>Prioridade na fila</td>
+          <td class="center">Padrão</td>
+          <td class="center">Alta</td>
+          <td class="center best">Máxima</td>
+        </tr>
+        <tr>
+          <td>Crédito acumulado</td>
+          <td class="center best">Não expira · 100%</td>
+          <td class="center best">Não expira · 100%</td>
+          <td class="center best">Não expira · 100%</td>
+        </tr>
+        <tr>
+          <td>Revisão mensal do site</td>
+          <td class="center">—</td>
+          <td class="center">—</td>
+          <td class="center best">✓ Inclusa</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">
+      *Estimativa de rendimento do crédito (referência: cerca de 3 alterações pequenas equivalem a 1 média).
+      O mesmo crédito pode ser aplicado em alterações pequenas, médias ou projetos complexos.
+      Alteração pequena: texto, telefone, e-mail, link, imagem simples, PDF avulso.
+      Alteração média: ajuste de seção, reorganização de bloco, layout simples.
+      Projeto complexo: novas seções, painéis, integrações e funcionalidades — orçado individualmente,
+      sempre com o desconto do plano e abatível com o crédito.
+    </p>
+
+    <div class="mid">
+      <div class="box">
+        <h3>Como funciona o crédito</h3>
+        <ul>
+          <li>Todo mês, o valor do plano vira crédito de serviço</li>
+          <li>Mês sem pedido? O crédito acumula e <strong>não expira</strong></li>
+          <li>Saldo suficiente → o serviço sai <strong>sem custo adicional</strong></li>
+          <li>Saldo insuficiente → você paga apenas o que falta, com desconto do plano</li>
+          <li>O desconto vale sempre — mesmo quando o pagamento não vem do crédito</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>O que entra no plano</h3>
+        <ul>
+          <li><strong>Todo tipo de serviço no site</strong>, sem exceção</li>
+          <li>Pequenas: textos, contatos, links, imagens, PDFs</li>
+          <li>Médias: ajustes de seção, blocos, layout simples</li>
+          <li>Complexas: painéis, integrações, novas funcionalidades</li>
+          <li>O crédito abate o valor; o que faltar é cobrado com desconto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="example">
+      <h3>Exemplo — Projeto de Boletins (valor avulso: R$ 650)</h3>
+      <div class="example-grid">
+        <div class="example-item">
+          <div class="label">Sem plano</div>
+          <div class="value strike">R$ 650</div>
+        </div>
+        <div class="example-item">
+          <div class="label">Essencial (−10%)</div>
+          <div class="value">R$ 585</div>
+        </div>
+        <div class="example-item featured">
+          <div class="label">Profissional (−22%)</div>
+          <div class="value">R$ 507</div>
+        </div>
+        <div class="example-item">
+          <div class="label">Premium (−35%)</div>
+          <div class="value">R$ 422</div>
+        </div>
+      </div>
+      <p>
+        Em <strong>qualquer plano</strong>, com crédito acumulado suficiente o projeto com desconto pode ser
+        <strong style="color:#F6BE25">totalmente coberto pelo saldo</strong> — sem pressa, quando precisar.
+        Se o saldo não cobrir tudo, você paga só a diferença, ainda com o desconto do plano.
+      </p>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h3>Pronto para começar?</h3>
+        <p>Escolha o plano que faz mais sentido e entre em contato para ativar.</p>
+      </div>
+      <div class="cta-contact">
+        Desenvolvedor Isaac Miranda<br />
+        WhatsApp: (19) 99646-7282
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Proposta válida por 30 dias · Valores em reais (BRL)</span>
+      <span>https://moacyrcontabil.com.br/</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -3,7 +3,6 @@ import MainSection from "./mainSection";
 import ServicesShowcaseSection from "./servicesShowcaseSection";
 import ContactDoubtSection from "../contato/contactDoubtSection";
 import LocationSection from "../contato/locationSection";
-import ResumeSection from "../curriculos/resumeSection";
 import InfoSection from "../../components/layout/infoSection";
 import BoletinsSection from "./boletinsSection";
 import { metadataInicial } from "@/helpers/metadata";
@@ -25,10 +24,6 @@ export default function Inicio() {
       <section id="contato" className="scroll-mt-24">
         <ContactDoubtSection />
         <LocationSection />
-      </section>
-
-      <section id="curriculos" className="scroll-mt-24">
-        <ResumeSection />
       </section>
     </div>
   );

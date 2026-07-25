@@ -6,7 +6,7 @@ export const navbarButtonList = [
       "https://ww3.netcontabil.net.br/moacyrcontabil.com.br/netcontabil/net_login.php",
     ],
   },
-  { 2: ["Currículos", "/inicio#curriculos"] },
+  { 2: ["Currículos", "/curriculos"] },
   { 3: ["Serviços", "/inicio#servicos"] },
   { 4: ["Contato", "/inicio#contato"] },
   { 5: ["Sites", "/sites"] },

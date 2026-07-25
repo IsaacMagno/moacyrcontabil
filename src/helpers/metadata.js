@@ -37,3 +37,10 @@ export const metadataSites = {
   description: "Sites úteis.",
   icons: defaultIcon,
 };
+
+export const metadataBoletins = {
+  title: "Gasparini Contabilidade | Boletins",
+  description:
+    "Arquivo completo dos boletins informativos da Gasparini Contabilidade.",
+  icons: defaultIcon,
+};

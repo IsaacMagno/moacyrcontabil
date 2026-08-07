@@ -1,11 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Calculator, PiggyBank, ShieldCheck } from "lucide-react";
 import PreventionImage from "@/../../public/jovem-afro.png";
 import FinanceImage from "@/../../public/organizacao_financeira.jpg";
 import PlanningImage from "@/../../public/planejamento_tributario.jpg";
 import LinkButton from "@/components/layout/LinkButton";
-import { WhatsappIcon } from "@/components/svgs";
 
 const WHATSAPP_URL =
   "https://wa.me/551938932236?text=" +
@@ -38,8 +36,8 @@ const cards = [
 
 const financeBullets = [
   "Sua empresa está apresentando lucro?",
-  "Analisamos suas contas e indicamos correções",
-  "Tudo feito a distância, sem plano de fidelidade",
+  "Analisamos suas contas e indicamos correções.",
+  "Tudo feito a distância, sem plano de fidelidade.",
 ];
 
 const cardShell =
@@ -66,7 +64,11 @@ const FinanceCard = () => {
           aria-hidden
           strokeWidth={1.75}
         />
-        <h3 className={cardTitle}>Organização Financeira</h3>
+        <h3 className={cardTitle}>
+          Organização
+          <br />
+          Financeira
+        </h3>
       </div>
 
       <div className="flex shrink-0 flex-col justify-center gap-3 bg-[#E6E6E6] px-5 py-4 text-center sm:py-5 md:py-6">
@@ -75,15 +77,6 @@ const FinanceCard = () => {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <Link
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 text-sm font-bold leading-relaxed text-zinc-900 transition-colors hover:text-brand-yellow md:text-base"
-        >
-          Consulte para saber mais: (19) 3893-2236
-          <WhatsappIcon className="h-4 w-4 text-[#25D366]" />
-        </Link>
       </div>
 
       <div className="relative min-h-0 flex-1 overflow-hidden bg-[#E6E6E6]">

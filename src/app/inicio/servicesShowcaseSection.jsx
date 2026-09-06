@@ -21,7 +21,7 @@ const cards = [
     imageAlt: "Homem sorrindo representando prevenção de riscos",
   },
   {
-    title: "Organização Financeira",
+    title: "Controle Financeiro",
     kind: "finance",
   },
   {
@@ -34,10 +34,10 @@ const cards = [
   },
 ];
 
-const financeBullets = [
-  "Sua empresa está apresentando lucro?",
-  "Analisamos suas contas e indicamos correções.",
-  "Tudo feito a distância, sem plano de fidelidade.",
+const financeParagraphs = [
+  "Um bom controle financeiro deve identificar situações que podem colocar sua empresa em risco.",
+  "Nós ajudamos você a simplificar essa tarefa e tornar sua gestão mais tranquila e eficiente.",
+  "Conte Conosco!",
 ];
 
 const cardShell =
@@ -65,24 +65,24 @@ const FinanceCard = () => {
           strokeWidth={1.75}
         />
         <h3 className={cardTitle}>
-          Organização
+          Controle
           <br />
-          Financeira
+          Financeiro
         </h3>
       </div>
 
-      <div className="flex shrink-0 flex-col justify-center gap-3 bg-[#E6E6E6] px-5 py-4 text-center sm:py-5 md:py-6">
-        <ul className={`mx-auto w-full max-w-sm space-y-1.5 ${cardBodyText}`}>
-          {financeBullets.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+      <div className="flex shrink-0 flex-col justify-center gap-2 bg-[#E6E6E6] px-5 py-4 text-center sm:py-5 md:py-6">
+        {financeParagraphs.map((item) => (
+          <p key={item} className={`mx-auto w-full max-w-sm ${cardBodyText}`}>
+            {item}
+          </p>
+        ))}
       </div>
 
       <div className="relative min-h-0 flex-1 overflow-hidden bg-[#E6E6E6]">
         <Image
           src={FinanceImage}
-          alt="Organização Financeira — Moacyr Nelson Gasparini Contabilidade"
+          alt="Controle Financeiro — Moacyr Nelson Gasparini Contabilidade"
           fill
           sizes="(min-width: 1280px) 30vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"

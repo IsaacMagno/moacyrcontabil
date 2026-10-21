@@ -21,7 +21,7 @@ const cards = [
     imageAlt: "Homem sorrindo representando prevenção de riscos",
   },
   {
-    title: "Controle Financeiro",
+    title: "Acompanhamento Financeiro",
     kind: "finance",
   },
   {
@@ -35,8 +35,8 @@ const cards = [
 ];
 
 const financeParagraphs = [
-  "Um bom controle financeiro deve identificar situações que podem colocar sua empresa em risco.",
-  "Nós ajudamos você a simplificar essa tarefa e tornar sua gestão mais tranquila e eficiente.",
+  "Analisamos suas contas e resultados para identificar riscos e orientar soluções.",
+  "Garanta um futuro mais seguro para sua empresa!",
   "Conte Conosco!",
 ];
 
@@ -65,7 +65,7 @@ const FinanceCard = () => {
           strokeWidth={1.75}
         />
         <h3 className={cardTitle}>
-          Controle
+          Acompanhamento
           <br />
           Financeiro
         </h3>
@@ -82,7 +82,7 @@ const FinanceCard = () => {
       <div className="relative min-h-0 flex-1 overflow-hidden bg-[#E6E6E6]">
         <Image
           src={FinanceImage}
-          alt="Controle Financeiro — Moacyr Nelson Gasparini Contabilidade"
+          alt="Acompanhamento Financeiro — Moacyr Nelson Gasparini Contabilidade"
           fill
           sizes="(min-width: 1280px) 30vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"

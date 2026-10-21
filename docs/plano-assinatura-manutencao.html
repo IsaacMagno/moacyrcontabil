@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plano de Manutenção — Gasparini Contabilidade</title>
+  <title>STOA — Planos de Assinatura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.css" rel="stylesheet" />
   <style>
+    :root {
+      --sombra: #16171A;
+      --pentelico: #EFEBE3;
+      --pedra: #9A968C;
+      --ocre: #B85C38;
+    }
     @page { size: A4; margin: 0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      color: #323231;
-      background: #fff;
-      line-height: 1.45;
+      font-family: "Newsreader", Georgia, serif;
+      color: var(--sombra);
+      background: var(--pentelico);
+      line-height: 1.5;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -19,18 +29,17 @@
       width: 210mm;
       height: 297mm;
       margin: 0 auto;
-      background: #fff;
+      background: var(--pentelico);
       overflow: hidden;
       page-break-after: always;
       page-break-inside: avoid;
     }
     .page:last-child { page-break-after: auto; }
 
-    /* —— CAPA —— */
     .cover {
-      background: linear-gradient(145deg, #1a1a19 0%, #323231 55%, #2a2a28 100%);
-      color: #fff;
-      padding: 42px 48px;
+      background: var(--sombra);
+      color: var(--pentelico);
+      padding: 44px 48px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -39,294 +48,345 @@
     .cover::before {
       content: "";
       position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(246, 190, 37, 0.12);
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--ocre);
     }
-    .cover::after {
-      content: "";
-      position: absolute;
-      bottom: 100px;
-      left: -50px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(246, 190, 37, 0.08);
+    .logo-cover {
+      height: 36px;
+      width: auto;
+      margin-bottom: 36px;
     }
-    .cover-top { position: relative; z-index: 1; }
     .badge {
       display: inline-block;
-      background: #F6BE25;
-      color: #1a1a19;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 24px;
+      color: var(--ocre);
+      margin-bottom: 18px;
     }
     .cover h1 {
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1.15;
-      max-width: 460px;
-      margin-bottom: 14px;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.12;
+      max-width: 480px;
+      margin-bottom: 18px;
+      color: var(--pentelico);
     }
-    .cover h1 span { color: #F6BE25; }
     .cover-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(239, 235, 227, 0.78);
       max-width: 420px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
     .cover-benefits {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      max-width: 520px;
-      position: relative;
-      z-index: 1;
+      max-width: 540px;
     }
     .cover-benefit {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
+      border: 1px solid rgba(239, 235, 227, 0.14);
+      border-radius: 2px;
       padding: 14px 16px;
       font-size: 13px;
+      color: rgba(239, 235, 227, 0.78);
     }
     .cover-benefit strong {
       display: block;
-      color: #F6BE25;
+      font-family: "Geist", system-ui, sans-serif;
       font-size: 11px;
-      margin-bottom: 4px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      color: var(--pentelico);
+      margin-bottom: 6px;
     }
     .cover-footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 20px;
+      border-top: 1px solid rgba(239, 235, 227, 0.16);
+      padding-top: 18px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--pedra);
     }
-    .cover-footer strong { color: #fff; display: block; font-size: 15px; }
+    .cover-footer .slogan {
+      color: var(--pentelico);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
 
-    /* —— PÁGINA INTERNA —— */
     .inner {
-      padding: 22px 36px 18px;
+      padding: 20px 32px 16px;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
+    .inner-logo {
+      height: 18px;
+      width: auto;
+      margin-bottom: 10px;
+    }
     .section-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #c49a10;
+      color: var(--ocre);
       margin-bottom: 4px;
     }
     h2 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: #1a1a19;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+      color: var(--sombra);
     }
     p.lead {
       font-size: 12px;
-      color: #555;
+      color: var(--pedra);
       margin-bottom: 10px;
+      max-width: 640px;
+      line-height: 1.4;
     }
+    p.lead strong { color: var(--sombra); font-weight: 500; }
 
     .plans {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 10px;
       align-items: stretch;
     }
     .plan {
-      border: 2px solid #e8e8e8;
-      border-radius: 12px;
-      padding: 14px 12px 12px;
+      border: 1px solid rgba(154, 150, 140, 0.35);
+      border-radius: 2px;
+      padding: 12px 12px 10px;
       position: relative;
-      background: #fafafa;
+      background: #fff;
     }
     .plan.featured {
-      border-color: #F6BE25;
-      background: linear-gradient(180deg, #fffdf5 0%, #fff 100%);
-      box-shadow: 0 4px 16px rgba(246, 190, 37, 0.16);
+      border-color: var(--ocre);
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(22, 23, 26, 0.08);
     }
     .plan-tag {
       position: absolute;
-      top: -10px;
+      top: -9px;
       left: 50%;
       transform: translateX(-50%);
-      background: #F6BE25;
-      color: #1a1a19;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      background: var(--ocre);
+      color: var(--pentelico);
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 999px;
+      padding: 3px 8px;
+      border-radius: 2px;
       white-space: nowrap;
     }
     .plan-name {
-      font-size: 11px;
-      font-weight: 700;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #888;
+      letter-spacing: 0.1em;
+      color: var(--pedra);
       margin-bottom: 4px;
     }
     .plan-price {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1a1a19;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--sombra);
       line-height: 1;
     }
     .plan-price small {
-      font-size: 12px;
-      font-weight: 600;
-      color: #888;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--pedra);
     }
     .plan-desc {
-      font-size: 10.5px;
-      color: #666;
-      margin: 5px 0 6px;
-      min-height: 26px;
+      font-size: 10px;
+      color: var(--pedra);
+      margin: 6px 0 8px;
+      min-height: 24px;
+      line-height: 1.35;
     }
-    .plan ul { list-style: none; font-size: 10.5px; }
+    .plan ul { list-style: none; font-size: 10px; }
     .plan li {
-      padding: 4px 0;
-      border-top: 1px solid #eee;
+      padding: 3px 0;
+      border-top: 1px solid rgba(154, 150, 140, 0.25);
       display: flex;
       gap: 6px;
       align-items: flex-start;
+      color: var(--sombra);
+      line-height: 1.3;
     }
     .plan li::before {
-      content: "✓";
-      color: #24B600;
-      font-weight: 800;
+      content: "—";
+      color: var(--pedra);
       flex-shrink: 0;
+      font-family: "Geist", system-ui, sans-serif;
     }
-    .plan li.highlight::before { color: #F6BE25; }
-    .plan li.highlight { font-weight: 600; color: #1a1a19; }
+    .plan li.highlight {
+      font-weight: 500;
+    }
+    .plan li.highlight::before { color: var(--ocre); }
 
     table.compare {
       width: 100%;
       border-collapse: collapse;
-      font-size: 10.5px;
+      font-size: 10px;
       margin-bottom: 8px;
+      font-family: "Geist", system-ui, sans-serif;
     }
     table.compare th,
     table.compare td {
-      padding: 5px 10px;
+      padding: 5px 8px;
       text-align: left;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgba(154, 150, 140, 0.25);
+      vertical-align: top;
     }
     table.compare th {
-      background: #323231;
-      color: #fff;
-      font-weight: 600;
+      background: var(--sombra);
+      color: var(--pentelico);
+      font-weight: 500;
+      letter-spacing: 0.03em;
     }
-    table.compare th:first-child { border-radius: 6px 0 0 0; }
-    table.compare th:last-child { border-radius: 0 6px 0 0; }
-    table.compare th.featured { background: #F6BE25; color: #1a1a19; }
-    table.compare tr:nth-child(even) td { background: #fafafa; }
-    table.compare td.center { text-align: center; }
-    table.compare .best { color: #24B600; font-weight: 700; }
+    table.compare th.featured { background: var(--ocre); color: var(--pentelico); }
+    table.compare tr:nth-child(even) td { background: rgba(239, 235, 227, 0.55); }
+    table.compare td { background: #fff; color: var(--sombra); }
+    table.compare td.center { text-align: center; vertical-align: middle; }
+    table.compare td.example-cell {
+      text-align: left;
+      font-size: 9px;
+      line-height: 1.35;
+      font-weight: 400;
+      color: var(--pedra);
+    }
+    table.compare .best { color: var(--ocre); font-weight: 600; }
 
     .note {
-      font-size: 9.5px;
+      font-size: 9px;
       line-height: 1.4;
-      color: #888;
-      font-style: italic;
+      color: var(--pedra);
+      font-style: normal;
       margin-bottom: 8px;
     }
 
     .mid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 12px;
-      margin-bottom: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 8px;
     }
     .box {
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
+      border: 1px solid rgba(154, 150, 140, 0.3);
+      border-radius: 2px;
       padding: 10px 12px;
-      background: #fafafa;
+      background: #fff;
     }
     .box h3 {
-      font-size: 11.5px;
-      font-weight: 700;
-      margin-bottom: 5px;
-      color: #1a1a19;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: var(--sombra);
     }
-    .box ul { padding-left: 16px; }
+    .box ul { padding-left: 14px; }
     .box li {
-      font-size: 10.5px;
-      color: #555;
+      font-size: 10px;
+      color: var(--pedra);
       margin-bottom: 2px;
+      line-height: 1.35;
     }
+    .box li strong { color: var(--sombra); font-weight: 500; }
 
     .example {
-      background: linear-gradient(135deg, #323231 0%, #1a1a19 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
+      background: var(--sombra);
+      color: var(--pentelico);
+      border-radius: 2px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
     }
     .example h3 {
-      font-size: 12px;
-      color: #F6BE25;
-      margin-bottom: 10px;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--pentelico);
+      margin-bottom: 8px;
     }
     .example-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+      gap: 6px;
     }
     .example-item {
-      background: rgba(255,255,255,0.08);
-      border-radius: 8px;
-      padding: 10px 8px;
+      background: rgba(239, 235, 227, 0.06);
+      border: 1px solid rgba(239, 235, 227, 0.12);
+      border-radius: 2px;
+      padding: 8px 6px;
       text-align: center;
     }
     .example-item .label {
-      font-size: 10px;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 2px;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--pedra);
+      margin-bottom: 3px;
     }
     .example-item .value {
-      font-size: 16px;
-      font-weight: 800;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--pentelico);
     }
     .example-item .value.strike {
       text-decoration: line-through;
-      color: rgba(255,255,255,0.45);
+      color: rgba(239, 235, 227, 0.4);
       font-size: 13px;
     }
-    .example-item.featured .value { color: #F6BE25; }
+    .example-item.featured .value { color: var(--ocre); }
+    .example-item .save {
+      display: block;
+      margin-top: 4px;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 8px;
+      letter-spacing: 0.04em;
+      color: var(--ocre);
+      line-height: 1.2;
+    }
     .example p {
-      font-size: 10.5px;
+      font-size: 10px;
       margin-top: 8px;
-      color: rgba(255,255,255,0.72);
+      color: rgba(239, 235, 227, 0.7);
+      line-height: 1.4;
     }
 
     .cta {
-      background: #F6BE25;
-      border-radius: 12px;
-      padding: 14px 18px;
+      border: 1px solid rgba(154, 150, 140, 0.35);
+      background: #fff;
+      border-radius: 2px;
+      padding: 10px 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -334,94 +394,116 @@
       margin-top: auto;
     }
     .cta h3 {
-      font-size: 15px;
-      font-weight: 800;
-      color: #1a1a19;
-      margin-bottom: 2px;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sombra);
+      margin-bottom: 1px;
     }
-    .cta p { font-size: 11.5px; color: #3d3d3b; }
+    .cta p { font-size: 11px; color: var(--pedra); }
     .cta-contact {
       text-align: right;
-      font-size: 12px;
-      color: #1a1a19;
-      font-weight: 600;
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 11px;
+      color: var(--sombra);
+      font-weight: 500;
       white-space: nowrap;
+    }
+    .cta-contact span {
+      display: block;
+      color: var(--pedra);
+      font-weight: 400;
+      font-size: 10px;
+      margin-top: 2px;
     }
 
     .page-footer {
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px solid #eee;
-      font-size: 10px;
-      color: #999;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(154, 150, 140, 0.3);
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 9px;
+      color: var(--pedra);
       display: flex;
       justify-content: space-between;
+      align-items: center;
+    }
+    .page-footer img {
+      height: 12px;
+      width: auto;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
 
-  <!-- PÁGINA 1 — CAPA -->
   <div class="page cover">
-    <div class="cover-top">
-      <div class="badge">Proposta exclusiva</div>
-      <h1>Plano de <span>Manutenção</span> do Site</h1>
+    <div>
+      <img
+        class="logo-cover"
+        src="./stoa-assets/horizontal-lockup-horizontal-invertido.png"
+        alt="STOA"
+      />
+      <div class="badge">Design · E-commerce · Vídeo · Automação · Software</div>
+      <h1>Planos de<br />assinatura</h1>
       <p class="cover-sub">
-        Mantenha o site da Gasparini Contabilidade sempre atualizado, com suporte contínuo,
-        descontos em projetos e créditos que acumulam quando você não precisa alterar nada.
+        Estrutura contínua para os seus projetos: suporte, execução e créditos que
+        acumulam quando não há demanda no mês.
       </p>
     </div>
 
     <div class="cover-benefits">
       <div class="cover-benefit">
-        <strong>Sem surpresas</strong>
-        Valor fixo mensal com crédito para alterações no site, do simples ao mais elaborado.
+        <strong>Sem surpresa</strong>
+        Valor fixo mensal com crédito para demandas — do ajuste simples ao projeto maior.
       </div>
       <div class="cover-benefit">
-        <strong>Crédito sem validade</strong>
-        Não usou no mês? O valor vira saldo e fica guardado para quando precisar.
+        <strong>Crédito que permanece</strong>
+        Não usou no mês? O valor vira saldo e fica disponível quando precisar.
       </div>
       <div class="cover-benefit">
         <strong>Desconto em projetos</strong>
-        Novos recursos (boletins, formulários, seções) saem mais baratos.
+        Design, e-commerce, vídeo 3D, automação e software saem com desconto do plano.
       </div>
       <div class="cover-benefit">
         <strong>Prioridade</strong>
-        Quanto maior o plano, mais prioridade na fila de atendimento dos seus pedidos.
+        Quanto maior o plano, mais prioridade na fila de atendimento.
       </div>
     </div>
 
     <div class="cover-footer">
       <div>
-        <strong>Gasparini Contabilidade</strong>
-        https://moacyrcontabil.com.br/
+        <div class="slogan">A estrutura por trás.</div>
+        STOA · Faz as coisas acontecerem
       </div>
       <div style="text-align: right;">
-        Preparado por<br />
-        <strong>Desenvolvedor Isaac Miranda</strong>
+        WhatsApp<br />
+        (19) 99646-7282
       </div>
     </div>
   </div>
 
-  <!-- PÁGINA 2 — TUDO COMPACTO -->
   <div class="page inner">
-    <div class="section-label">Escolha seu plano</div>
-    <h2>Três opções, cada uma mais vantajosa</h2>
+    <img
+      class="inner-logo"
+      src="./stoa-assets/horizontal-lockup-horizontal.png"
+      alt="STOA"
+    />
+    <div class="section-label">Escolha o plano</div>
+    <h2>Três planos. Crédito, desconto e prioridade.</h2>
     <p class="lead">
-      O valor mensal vira <strong>crédito de serviço</strong> que vale para qualquer alteração no site —
-      pequena, média ou projetos completos. Se o pedido couber no saldo, não paga nada a mais;
-      se ultrapassar, paga só a diferença, sempre com o desconto do seu plano.
-      O crédito acumulado <strong>não expira</strong>.
+      O valor mensal vira <strong>crédito de serviço</strong> para demandas digitais.
+      Se couber no saldo, sem custo extra. Se ultrapassar, paga só a diferença — com desconto.
+      Crédito acumulado <strong>não expira</strong>.
     </p>
 
     <div class="plans">
       <div class="plan">
         <div class="plan-name">Essencial</div>
         <div class="plan-price">R$ 89<small>/mês</small></div>
-        <div class="plan-desc">Ideal para quem altera o site poucas vezes ao ano.</div>
+        <div class="plan-desc">Para quem gera poucas demandas digitais ao ano.</div>
         <ul>
-          <li>R$ 89 em crédito/mês (~3 pequenas ou ~1 média)</li>
-          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li>R$ 89 em crédito/mês</li>
           <li class="highlight">10% de desconto em todo serviço</li>
           <li>Crédito acumula e não expira</li>
           <li>Prioridade padrão na fila</li>
@@ -432,10 +514,9 @@
         <div class="plan-tag">Mais escolhido</div>
         <div class="plan-name">Profissional</div>
         <div class="plan-price">R$ 159<small>/mês</small></div>
-        <div class="plan-desc">Melhor custo-benefício para a maioria dos clientes.</div>
+        <div class="plan-desc">Equilíbrio entre crédito, desconto e prioridade.</div>
         <ul>
-          <li>R$ 159 em crédito/mês (~5 pequenas ou ~1–2 médias)</li>
-          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li>R$ 159 em crédito/mês</li>
           <li class="highlight">22% de desconto em todo serviço</li>
           <li>Crédito acumula e não expira</li>
           <li>Prioridade alta na fila</li>
@@ -445,14 +526,12 @@
       <div class="plan">
         <div class="plan-name">Premium</div>
         <div class="plan-price">R$ 279<small>/mês</small></div>
-        <div class="plan-desc">Prioridade máxima e o maior desconto.</div>
+        <div class="plan-desc">Maior prioridade e o maior desconto.</div>
         <ul>
-          <li>R$ 279 em crédito/mês (~9 pequenas ou ~3 médias)</li>
-          <li>Vale para alterações pequenas, médias ou projetos</li>
+          <li>R$ 279 em crédito/mês</li>
           <li class="highlight">35% de desconto em todo serviço</li>
           <li>Crédito acumula e não expira</li>
-          <li>Prioridade máxima na fila</li>
-          <li>Revisão mensal rápida do site</li>
+          <li>Prioridade máxima + revisão mensal</li>
         </ul>
       </div>
     </div>
@@ -474,10 +553,10 @@
           <td class="center">R$ 279</td>
         </tr>
         <tr>
-          <td>Crédito mensal (estimativa)*</td>
-          <td class="center">~3 pequenas ou ~1 média</td>
-          <td class="center">~5 pequenas ou ~1–2 médias</td>
-          <td class="center best">~9 pequenas ou ~3 médias</td>
+          <td>Exemplos de cobertura do crédito</td>
+          <td class="example-cell">Ajustes rápidos, edições simples de imagem ou pequenas atualizações.</td>
+          <td class="example-cell">Banners para e-commerce, peças de design ou configurações de rotina.</td>
+          <td class="example-cell">Setup de automações, modelagem 3D básica ou acúmulo acelerado para projetos.</td>
         </tr>
         <tr>
           <td>Desconto em todo serviço</td>
@@ -498,21 +577,16 @@
           <td class="center best">Não expira · 100%</td>
         </tr>
         <tr>
-          <td>Revisão mensal do site</td>
+          <td>Revisão mensal da operação</td>
           <td class="center">—</td>
           <td class="center">—</td>
-          <td class="center best">✓ Inclusa</td>
+          <td class="center best">Inclusa</td>
         </tr>
       </tbody>
     </table>
 
     <p class="note">
-      *Estimativa de rendimento do crédito (referência: cerca de 3 alterações pequenas equivalem a 1 média).
-      O mesmo crédito pode ser aplicado em alterações pequenas, médias ou projetos complexos.
-      Alteração pequena: texto, telefone, e-mail, link, imagem simples, PDF avulso.
-      Alteração média: ajuste de seção, reorganização de bloco, layout simples.
-      Projeto complexo: novas seções, painéis, integrações e funcionalidades — orçado individualmente,
-      sempre com o desconto do plano e abatível com o crédito.
+      *O valor da mensalidade é integralmente revertido em saldo na sua conta. O custo de cada demanda é abatido desse saldo. Se a demanda for maior que o crédito disponível, você paga apenas a diferença, já com o desconto exclusivo do seu plano aplicado. O saldo não utilizado acumula para o mês seguinte.
     </p>
 
     <div class="mid">
@@ -521,64 +595,64 @@
         <ul>
           <li>Todo mês, o valor do plano vira crédito de serviço</li>
           <li>Mês sem pedido? O crédito acumula e <strong>não expira</strong></li>
-          <li>Saldo suficiente → o serviço sai <strong>sem custo adicional</strong></li>
-          <li>Saldo insuficiente → você paga apenas o que falta, com desconto do plano</li>
-          <li>O desconto vale sempre — mesmo quando o pagamento não vem do crédito</li>
+          <li>Saldo suficiente → serviço <strong>sem custo adicional</strong></li>
+          <li>Saldo insuficiente → paga só o que falta, com desconto</li>
         </ul>
       </div>
       <div class="box">
         <h3>O que entra no plano</h3>
         <ul>
-          <li><strong>Todo tipo de serviço no site</strong>, sem exceção</li>
-          <li>Pequenas: textos, contatos, links, imagens, PDFs</li>
-          <li>Médias: ajustes de seção, blocos, layout simples</li>
-          <li>Complexas: painéis, integrações, novas funcionalidades</li>
-          <li>O crédito abate o valor; o que faltar é cobrado com desconto</li>
+          <li><strong>Design e Branding:</strong> Identidade, materiais gráficos e banners.</li>
+          <li><strong>E-commerce:</strong> Otimização de anúncios, cadastro e operação (Shopee/Mercado Livre).</li>
+          <li><strong>Vídeo e 3D:</strong> Renders de produtos, edição e motion.</li>
+          <li><strong>Software e Automação:</strong> Novas funcionalidades, integrações e fluxos de dados.</li>
         </ul>
       </div>
     </div>
 
     <div class="example">
-      <h3>Exemplo — Projeto de Boletins (valor avulso: R$ 650)</h3>
+      <h3>Exemplo — Projeto complexo (ex: Automação de E-commerce ou Vídeo 3D) · avulso R$ 3.500</h3>
       <div class="example-grid">
         <div class="example-item">
           <div class="label">Sem plano</div>
-          <div class="value strike">R$ 650</div>
+          <div class="value strike">R$ 3.500</div>
         </div>
         <div class="example-item">
           <div class="label">Essencial (−10%)</div>
-          <div class="value">R$ 585</div>
+          <div class="value">R$ 3.150</div>
+          <span class="save">Economia de R$ 350</span>
         </div>
         <div class="example-item featured">
           <div class="label">Profissional (−22%)</div>
-          <div class="value">R$ 507</div>
+          <div class="value">R$ 2.730</div>
+          <span class="save">Economia de R$ 770</span>
         </div>
         <div class="example-item">
           <div class="label">Premium (−35%)</div>
-          <div class="value">R$ 422</div>
+          <div class="value">R$ 2.275</div>
+          <span class="save">Economia de R$ 1.225</span>
         </div>
       </div>
       <p>
-        Em <strong>qualquer plano</strong>, com crédito acumulado suficiente o projeto com desconto pode ser
-        <strong style="color:#F6BE25">totalmente coberto pelo saldo</strong> — sem pressa, quando precisar.
-        Se o saldo não cobrir tudo, você paga só a diferença, ainda com o desconto do plano.
+        No Premium, R$ 1.225 de economia cobre quase 4 meses e meio do plano.
+        No Profissional, R$ 770 cobre quase 5 meses. Com crédito acumulado, o saldo ainda abate o valor com desconto.
       </p>
     </div>
 
     <div class="cta">
       <div>
-        <h3>Pronto para começar?</h3>
-        <p>Escolha o plano que faz mais sentido e entre em contato para ativar.</p>
+        <h3>Pronto para estruturar?</h3>
+        <p>Escolha o plano e fale com a STOA para ativar.</p>
       </div>
       <div class="cta-contact">
-        Desenvolvedor Isaac Miranda<br />
-        WhatsApp: (19) 99646-7282
+        STOA
+        <span>WhatsApp (19) 99646-7282</span>
       </div>
     </div>
 
     <div class="page-footer">
       <span>Proposta válida por 30 dias · Valores em reais (BRL)</span>
-      <span>https://moacyrcontabil.com.br/</span>
+      <img src="./stoa-assets/horizontal-lockup-horizontal.png" alt="STOA" />
     </div>
   </div>
 

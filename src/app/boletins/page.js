@@ -4,6 +4,7 @@ import {
   countPublishedBoletins,
   getPublishedBoletins,
 } from "@/lib/boletins/queries";
+import { BOLETINS_PUBLIC_ENABLED } from "@/lib/boletins/flags";
 import BoletinsList from "@/components/boletins/BoletinsList";
 import { metadataBoletins } from "@/helpers/metadata";
 
@@ -14,6 +15,10 @@ export const dynamic = "force-dynamic";
 const ARCHIVE_MIN = 6;
 
 export default async function BoletinsPage() {
+  if (!BOLETINS_PUBLIC_ENABLED) {
+    redirect("/inicio");
+  }
+
   let total = 0;
 
   try {

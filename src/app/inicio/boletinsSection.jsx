@@ -3,11 +3,16 @@ import {
   countPublishedBoletins,
   getPublishedBoletins,
 } from "@/lib/boletins/queries";
+import { BOLETINS_PUBLIC_ENABLED } from "@/lib/boletins/flags";
 import BoletinsList from "@/components/boletins/BoletinsList";
 
 const HOME_LIMIT = 5;
 
 const BoletinsSection = async () => {
+  if (!BOLETINS_PUBLIC_ENABLED) {
+    return null;
+  }
+
   let boletins = [];
   let total = 0;
 

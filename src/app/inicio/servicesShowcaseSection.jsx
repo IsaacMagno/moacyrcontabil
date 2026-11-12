@@ -15,7 +15,7 @@ const cards = [
   {
     title: "Prevenção do Risco de Fiscalização",
     description:
-      "Sua empresa sempre bem informada sobre sua real situação fiscal.",
+      "Apresentamos um relatório contendo as irregularidades de sua empresa, que podem chamar a atenção da fiscalização.",
     Icon: ShieldCheck,
     image: PreventionImage,
     imageAlt: "Homem sorrindo representando prevenção de riscos",
@@ -27,7 +27,7 @@ const cards = [
   {
     title: "Planejamento Tributário",
     description:
-      "Nosso compromisso é proporcionar a você a tranquilidade de saber que sua empresa está aproveitando ao máximo os benefícios fiscais disponíveis, garantindo uma gestão financeira mais eficiente e estratégica!",
+      "Realizamos a análise do regime tributário ideal, para que sua empresa tenha a menor carga tributária, sem correr riscos.",
     Icon: Calculator,
     image: PlanningImage,
     imageAlt: "Imagem representando planejamento tributário",
@@ -35,9 +35,8 @@ const cards = [
 ];
 
 const financeParagraphs = [
-  "Analisamos suas contas e resultados para identificar riscos e orientar soluções.",
-  "Garanta um futuro mais seguro para sua empresa!",
-  "Conte Conosco!",
+  "Serviço de análise das contas e resultados de sua empresa, para identificar riscos e orientar soluções.",
+  "Garanta um futuro mais seguro para sua empresa. Consulte!",
 ];
 
 const cardShell =
